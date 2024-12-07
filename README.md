@@ -24,7 +24,7 @@ This repository contain essential networking functionalities—TCP/UDP protocols
    Utilize the P4 tutorial and cheatsheet as valuable references throughout the development process.
 
 
-## 1. TCP and UDP Implementation  
+## TCP and UDP Implementation  
 Develop a P4 program to implement the functionality of the TCP and UDP transport layer protocols on a switch.  
 
 
@@ -58,9 +58,6 @@ server. In `h2`'s xterm, go to the current exercise folder (`cd exercises/acl`) 
    The command line means `h1` will send a message to `10.0.1.2` with udp.dstport=80.
    The message will **not** be received and displayed in `h2`.
 
-
-   ### A note about the control plane
-
    A P4 program defines a packet-processing pipeline, but the rules
    within each table are inserted by the control plane. When a rule
    matches a packet, its action is invoked with parameters supplied by
@@ -78,7 +75,7 @@ server. In `h2`'s xterm, go to the current exercise folder (`cd exercises/acl`) 
    these `s1-acl.json` files.
 
 
-## 2. Access Control List (ACL)  
+## Access Control List (ACL)  
 Create a P4 program to enforce an ACL on a switch, allowing or blocking network traffic based on predefined rules.  
 
 <!-- The `acl.p4` file contains a skeleton P4 program with key pieces of
