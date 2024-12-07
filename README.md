@@ -89,8 +89,6 @@ server. In `h2`'s xterm, go to the current exercise folder (`cd exercises/acl`) 
 ## 2. Access Control List (ACL)  
 Create a P4 program to enforce an ACL on a switch, allowing or blocking network traffic based on predefined rules.  
 
-### Step 1: Implement ACL
-
 <!-- The `acl.p4` file contains a skeleton P4 program with key pieces of
 logic replaced by `TODO` comments. Your implementation should follow
 the structure given in this file---replace each `TODO` with logic
@@ -106,7 +104,7 @@ A complete `acl.p4` will contain the following components:
 	2. Updates the ethernet destination address with the address of the next hop.
 	3. Updates the ethernet source address with the address of the switch.
 	4. Decrements the TTL.
-5. **TODO:** A control that:
+5. A control that:
     1. Defines a table that will match IP dstAddr and UDP dstPort, and
        invoke either `drop` or `NoAction`.
     2. An `apply` block that applies the table.
