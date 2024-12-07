@@ -27,7 +27,7 @@ This repository contain essential networking functionalities—TCP/UDP protocols
 ## 1. TCP and UDP Implementation  
 Develop a P4 program to implement the functionality of the TCP and UDP transport layer protocols on a switch.  
 
-### Step 1: Run the (incomplete) starter code
+
 
 let's compile the incomplete `acl.p4` and bring up a switch in Mininet to test its behavior.
 
