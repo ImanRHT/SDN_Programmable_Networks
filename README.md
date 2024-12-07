@@ -57,15 +57,7 @@ server. In `h2`'s xterm, go to the current exercise folder (`cd exercises/acl`) 
    ```
    The command line means `h1` will send a message to `10.0.1.2` with udp.dstport=80.
    The message will **not** be received and displayed in `h2`.
-5. Type `exit` to leave each xterm and the Mininet command line.
-   Then, to stop mininet:
-   ```bash
-   make stop
-   ```
-   And to delete all pcaps, build files, and logs:
-   ```bash
-   make clean
-   ```
+
 
    ### A note about the control plane
 
