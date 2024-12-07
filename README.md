@@ -27,5 +27,64 @@ This repository contain essential networking functionalities—TCP/UDP protocols
 ## 1. TCP and UDP Implementation  
 Develop a P4 program to implement the functionality of the TCP and UDP transport layer protocols on a switch.  
 
+### Step 1: Run the (incomplete) starter code
+
+let's compile the incomplete `acl.p4` and bring up a switch in Mininet to test its behavior.
+
+1. In your shell, run:
+   ```bash
+   make run
+   ```
+   This will:
+   * compile `acl.p4`, and
+   * start a Mininet instance with one switch (`s1`) connected to four hosts (`h1`, `h2`, `h3` and `h4`). Mininet is a network simulator that can simulate a virtual network in the VM.
+   * The hosts are assigned with IP addresses of `10.0.1.1`, `10.0.1.2`, `10.0.1.3` and `10.0.1.4`.
+   The output of this command line may be useful when you debug.
+
+2. You should now see a Mininet command prompt. Open two terminals
+for `h1` and `h2`, respectively:
+   ```bash
+   mininet> xterm h1 h2
+   ```
+3. Each host includes a small Python-based messaging client and
+server. In `h2`'s xterm, go to the current exercise folder (`cd exercises/acl`) and start the server with the listening port:
+   ```bash
+   ./receive.py 80
+   ```
+4. In `h1`'s xterm, go to the current exercise folder (`cd exercises/acl`) and send a message to `h2`:
+   ```bash
+   ./send.py 10.0.1.2 UDP 80 "P4 IS COOL"
+   ```
+   The command line means `h1` will send a message to `10.0.1.2` with udp.dstport=80.
+   The message will **not** be received and displayed in `h2`.
+5. Type `exit` to leave each xterm and the Mininet command line.
+   Then, to stop mininet:
+   ```bash
+   make stop
+   ```
+   And to delete all pcaps, build files, and logs:
+   ```bash
+   make clean
+   ```
+
+   ### A note about the control plane
+
+   A P4 program defines a packet-processing pipeline, but the rules
+   within each table are inserted by the control plane. When a rule
+   matches a packet, its action is invoked with parameters supplied by
+   the control plane as part of the rule.
+
+   As part of bringing up the Mininet instance, the
+   `make run` command will install packet-processing rules in the tables of
+   each switch. These are defined in the `s1-acl.json` files.
+
+   **Important:** We use P4Runtime to install the control plane rules. The
+   content of files `s1-acl.json` refer to specific names of tables, keys, and
+   actions, as defined in the P4Info file produced by the compiler (look for the
+   file `build/acl.p4info` after executing `make run`). Any changes in the P4
+   program that add or rename tables, keys, or actions will need to be reflected in
+   these `s1-acl.json` files.
+
+
 ## 2. Access Control List (ACL)  
 Create a P4 program to enforce an ACL on a switch, allowing or blocking network traffic based on predefined rules.  
