@@ -8,19 +8,14 @@ This repository contain essential networking functionalities—TCP/UDP protocols
 1. **Install VirtualBox**  
    Ensure you have VirtualBox installed on your system.  
 
-2. **Download the Virtual Machine (VM)**  
-   Get the pre-configured VM from the INL Lab:  
-   - **Username:** `p4`  
-   - **Password:** `p4`  
-
-3. **Clone this Repository**  
+2. **Clone this Repository**  
    Use the following commands to clone the project repository and navigate to the project directory:  
    ```bash  
    git clone https://github.com/your-repo.git  
    cd your-repo  
    cd course-net/spring2021-1/assignment2  
 
-4. **Explore Resources**
+3. **Explore Resources**
    Utilize the P4 tutorial and cheatsheet as valuable references throughout the development process.
 
 
