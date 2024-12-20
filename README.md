@@ -187,17 +187,3 @@ the background. Use the following command to clean up these instances:
 make stop
 ```
 
-### Policy
-
-If you violate any of the following rules, you will get `0` for this assignment.
-
-    1.You must complete this assignment individually.
-    2.You are not allowed to share your code (or a peace of it) with other students.
-    3.If you use code on the internet you should cite the source(s).
-
-
-## Submission
-You must submit:
-
-* Your source code for the exercises, in a folder called `P4-assignment`  and submit an `assignment2.zip` file. Make sure to submit both the p4 code and the corresponding json file that configures the table entries.
-
