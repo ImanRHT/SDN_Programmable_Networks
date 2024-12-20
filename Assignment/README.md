@@ -1,8 +1,4 @@
-# Assignment 2: Implementing Tunneling with P4
-
-### Due: Tuesday, Jun 21
-
-![photo](topo-2.png)
+# Implementing Tunneling with P4
 
 
 ## Introduction
