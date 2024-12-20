@@ -1,0 +1,71 @@
+{
+  "target": "bmv2",
+  "p4info": "build/basic_tunnel.p4.p4info.txt",
+  "bmv2_json": "build/basic_tunnel.json",
+  "table_entries": [
+    {
+      "table": "MyIngress.ipv4_lpm",
+      "match": {
+        "hdr.ipv4.dstAddr": ["10.0.1.1", 32]
+      },
+      "action_name": "MyIngress.ipv4_forward",
+      "action_params": {
+        "dstAddr": "08:00:00:00:01:11",
+        "port": 1
+      }
+    },
+    {
+      "table": "MyIngress.ipv4_lpm",
+      "match": {
+        "hdr.ipv4.dstAddr": ["10.0.2.2", 32]
+      },
+      "action_name": "MyIngress.ipv4_forward",
+      "action_params": {
+        "dstAddr": "08:00:00:00:02:00",
+        "port": 2
+      }
+    },
+    {
+      "table": "MyIngress.ipv4_lpm",
+      "match": {
+        "hdr.ipv4.dstAddr": ["10.0.3.3", 32]
+      },
+      "action_name": "MyIngress.ipv4_forward",
+      "action_params": {
+        "dstAddr": "08:00:00:00:03:00",
+        "port": 3
+      }
+    },
+
+    {
+      "table": "MyIngress.myTunnel_exact",
+      "match": {
+        "hdr.myTunnel.dst_id": [1]
+      },
+      "action_name": "MyIngress.myTunnel_forward",
+      "action_params": {
+        "port": 1
+      }
+    },
+    {
+      "table": "MyIngress.myTunnel_exact",
+      "match": {
+        "hdr.myTunnel.dst_id": [2]
+      },
+      "action_name": "MyIngress.myTunnel_forward",
+      "action_params": {
+        "port": 2
+      }
+    },
+    {
+      "table": "MyIngress.myTunnel_exact",
+      "match": {
+        "hdr.myTunnel.dst_id": [3]
+      },
+      "action_name": "MyIngress.myTunnel_forward",
+      "action_params": {
+        "port": 3
+      }
+    }
+  ]
+}

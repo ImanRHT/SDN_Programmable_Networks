@@ -1,0 +1,22 @@
+* To tun (inside "tunneling_and_acl" directory):
+	sudo make clean
+	sudo make run
+
+* To test basic forwarding:
+	xterm h1 h2 h3
+	./recieve.py (on one of the hosts)
+	./send.py 10.0.x.x 'message' (on another host)
+
+* To test basic tunneling:
+	xterm h1 h2 h3
+	./recieve.py (on one of the hosts)
+	./send.py 10.0.x.x 'message' --dst_id x (on another host)
+
+* To test access control:
+	xterm h1 h2 h3
+	./recieve.py (on one of the hosts)
+	./send.py 10.0.x.x 'message' --transport_protocol UDP --port 80
+	message should be shown SUCCESSFULLY on host X
+	run command: "sudo python3 runtime.py --dst_id 10.0.3.3 --udp_port 80" in another terminal (inside "tunneling_and_acl" directory)
+	send again (on xterm): "./send.py 10.0.x.x 'message' --transport_protocol UDP --port 80"
+	message sholud NOT be shown since flow table has been updated with new access control entry
